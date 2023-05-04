@@ -2,21 +2,30 @@
 <html>
 	<head>
 		<title>Web Programming</title>
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+		<!-- import jquery -->
 		<script
 			src="https://code.jquery.com/jquery-3.6.4.js"
 			integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
 			crossorigin="anonymous"></script>
+		
+		<!-- import datatables js -->
 		<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+		<!-- import datatables css -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+		
+		<!-- datatable config -->
 		<script>
 			$(document).ready( function () {
-				$('#myTable').DataTable();
+				$('#umb-table').DataTable({
+					paging: false,
+				});
 			} );
 		</script>
 	</head>
 	<body>
 		
-		<table id="myTable">
+		<table id="umb-table">
 			<thead>
 				<tr>
 				<th>Country</th>
