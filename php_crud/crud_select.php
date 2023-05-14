@@ -8,7 +8,7 @@
 		// calling db connection file
 		include_once('db_connect.php');
 
-		// data query
+		// query data
 		$result = mysqli_query($conn, "SELECT id, name FROM category");
 		?>
 
