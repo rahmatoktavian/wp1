@@ -9,5 +9,6 @@ $id = $_GET["id"];
 $sql = "DELETE FROM category WHERE id = ".$id;
 $result = mysqli_query($conn, $sql);
 
+// redirect to table page
 header("location: crud_select.php");
 ?>

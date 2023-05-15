@@ -9,5 +9,6 @@ $name = $_POST["name"];
 $sql = "INSERT INTO category (name) VALUES ('".$name."')";
 $result = mysqli_query($conn, $sql);
 
+// redirect to table page
 header("location: crud_select.php");
 ?>

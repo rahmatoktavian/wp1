@@ -12,5 +12,6 @@ $name = $_POST["name"];
 $sql = "UPDATE category SET name = '".$name."' WHERE id = ".$id;
 $result = mysqli_query($conn, $sql);
 
+// redirect to table page
 header("location: crud_select.php");
 ?>
