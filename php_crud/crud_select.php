@@ -6,7 +6,7 @@
 	<body>
 		<?php 
 		// calling db connection file
-		include_once('db_connect.php');
+		include_once('../db_connect.php');
 
 		// query data
 		$result = mysqli_query($conn, "SELECT id, name FROM category");

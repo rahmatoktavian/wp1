@@ -6,7 +6,7 @@
 <body>
 	<?php
 	// calling db connection file
-	include_once("db_connect.php");
+	include_once("../db_connect.php");
 
 	// data from url
 	$id = $_GET["id"];
