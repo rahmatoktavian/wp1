@@ -6,7 +6,7 @@
 <body>
 	<?php 
 	// calling db connection file
-	include_once('db_connect.php');
+	include_once('../db_connect.php');
 
 	// category data
 	$categoryData = mysqli_query($conn, "SELECT id, name FROM category ORDER BY name");

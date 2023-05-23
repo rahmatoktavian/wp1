@@ -6,12 +6,13 @@
 	<body>
 		<?php 
 		// calling db connection file
-		include_once('db_connect.php');
+		include_once('../db_connect.php');
 
 		// sql data book join category
 		$sql = "SELECT book.id, book.title, category.name AS category_name
 				FROM book 
-				JOIN category ON book.category_id = category.id";
+				JOIN category ON book.category_id = category.id
+				ORDER BY category.name ASC, book.title ASC";
 
 		// query data
 		$result = mysqli_query($conn, $sql);
@@ -32,8 +33,8 @@
 			<!-- data output from query -->
 			<?php while($row = $result->fetch_assoc()):?>
 				<tr>
-					<td><?php echo $row["title"];?></td>
 					<td><?php echo $row["category_name"];?></td>
+					<td><?php echo $row["title"];?></td>
 					<td><a href="crud_update.php?id=<?php echo $row["id"];?>">Update</a></td>
 				</tr>
         	<?php endwhile;?>

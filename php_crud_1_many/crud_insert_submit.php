@@ -1,6 +1,6 @@
 <?php
 // calling db connection file
-include_once("db_connect.php");
+include_once("../db_connect.php");
 
 // data from crud_insert form
 $title = $_POST["title"];
