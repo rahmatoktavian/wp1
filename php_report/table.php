@@ -39,7 +39,7 @@
 		</table>
 
 		  <br />
-		  <a href="table_pdf.php?export=pdf" target="_blank">Export PDF</a>
+		  <a href="table_pdf.php" target="_blank">Export PDF</a>
 		
 	</body>
 </html>
