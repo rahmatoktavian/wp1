@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Programming</title>
+	</head>
+	<body>
+		<?php 
+		// calling db connection file
+		include_once('../db_connect.php');
+
+		// sql data book join category
+		$sql = "SELECT category.name AS category_name, COUNT(book.title) AS book_total
+				FROM book 
+				JOIN category ON book.category_id = category.id
+				GROUP BY category.name
+				ORDER BY category.name";
+
+		// query data
+		$result = mysqli_query($conn, $sql);
+		?>
+
+		<!-- chart container -->
+		<div id="container"></div>
+		
+		<!-- import highchart javascript file -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+		<script>
+			Highcharts.chart('container', {
+				chart: {
+					type: 'pie'
+				},
+				title: {
+					text: 'Book Comparison',
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.y} Item ({point.percentage:.1f}%)</b>'
+				},
+				accessibility: {
+					point: {
+						valueSuffix: '%'
+					}
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false
+						},
+						showInLegend: true
+					}
+				},
+				series: [{
+					name: 'Book',
+					colorByPoint: true,
+					data: [
+						
+						<?php while($row = $result->fetch_assoc()):?>
+						{
+							name: '<?php echo $row["category_name"]?>',
+							y: <?php echo $row["book_total"]?>
+						},
+						<?php endwhile?>
+					]
+				}]
+			});
+		</script>
+	</body>
+</html>
