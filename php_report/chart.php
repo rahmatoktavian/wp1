@@ -16,8 +16,27 @@
 				ORDER BY category.name";
 
 		// query data
-		$result = mysqli_query($conn, $sql);
+		$result_table = mysqli_query($conn, $sql);
+		$result_chart = mysqli_query($conn, $sql);
 		?>
+
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Book Total</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- data output from query -->
+			<?php while($row = $result_table->fetch_assoc()):?>
+				<tr>
+					<td><?php echo $row["category_name"];?></td>
+					<td><?php echo $row["book_total"];?></td>
+				</tr>
+        	<?php endwhile;?>
+			</tbody>
+		</table>
 
 		<!-- chart container -->
 		<div id="container"></div>
@@ -58,7 +77,7 @@
 					colorByPoint: true,
 					data: [
 						
-						<?php while($row = $result->fetch_assoc()):?>
+						<?php while($row = $result_chart->fetch_assoc()):?>
 						{
 							name: '<?php echo $row["category_name"]?>',
 							y: <?php echo $row["book_total"]?>

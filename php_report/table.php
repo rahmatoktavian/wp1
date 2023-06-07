@@ -38,8 +38,8 @@
 			</tbody>
 		</table>
 
-		  <br />
-		  <a href="table_pdf.php" target="_blank">Export PDF</a>
+		<br />
+		<a href="table_pdf.php" target="_blank">Export PDF</a>
 		
 	</body>
 </html>
