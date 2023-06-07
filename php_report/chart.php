@@ -9,7 +9,7 @@
 		include_once('../db_connect.php');
 
 		// sql data book join category
-		$sql = "SELECT category.name AS category_name, COUNT(book.title) AS book_total
+		$sql = "SELECT category.name AS category_name, COUNT(book.stock) AS book_total
 				FROM book 
 				JOIN category ON book.category_id = category.id
 				GROUP BY category.name
