@@ -6,7 +6,7 @@
 	<body>
 		<?php 
             //parameter
-			$apikey = 'SFy1BRlIPbrRyuOqmhSgiZetUUnGIMFK';
+			$apikey = 'zy1KDBmqBsL3jNS6CpmqUmkcVHGN4Gxd';
             $city_name = $_POST['city_name'];
 
 			// API get city data
@@ -25,9 +25,8 @@
 			//convert json response into php array
 			$response_city = json_decode($json_city, TRUE);
 			
-			// display raw data
-            $data_city = $response_city[0];
-            $city_key = $data_city['Key'];
+			// get city key
+            $city_key = $response_city[0]['Key'];
             //end of API city
 
             // API get city weather
@@ -44,13 +43,10 @@
 			//convert json response into php array
 			$response_weather = json_decode($json_weather, TRUE);
 			
-			// display raw data
-            $data_weather = $response_weather['Headline'];
-			
 		?>
 
-		<p>City Name : <?php echo $data_city['EnglishName'];?></p>
-		<p>Weather Forecasting : <?php echo $data_weather['Text'];?></p>
+		<p>City Name : <?php echo $response_city[0]['EnglishName'];?></p>
+		<p>Weather Forecasting : <?php echo $response_weather['Headline']['Text'];?></p>
 		<a href="<?php echo $response_weather['DailyForecasts'][0]['Link'];?>" target="_blank">Weather Detail</a>
 	</body>
 </html>
