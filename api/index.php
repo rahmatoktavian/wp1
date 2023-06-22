@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><button type="submit">Save</button></td>
+			<td><button type="submit">Search</button></td>
 		</tr>
 	</table>
 	</form>

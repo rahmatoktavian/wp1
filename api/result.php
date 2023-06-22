@@ -42,7 +42,6 @@
 
 			//convert json response into php array
 			$response_weather = json_decode($json_weather, TRUE);
-			
 		?>
 
 		<p>City Name : <?php echo $response_city[0]['EnglishName'];?></p>
