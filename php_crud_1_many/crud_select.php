@@ -9,10 +9,10 @@
 		include_once('../db_connect.php');
 
 		// sql data book join category
-		$sql = "SELECT book.id, book.title, category.name AS category_name
-				FROM book 
-				JOIN category ON book.category_id = category.id
-				ORDER BY category.name ASC, book.title ASC";
+		$sql = "SELECT book.id, category.id, book.title, category.name AS category_name
+							FROM book 
+							JOIN category ON book.category_id = category.id
+							ORDER BY book.title";
 
 		// query data
 		$result = mysqli_query($conn, $sql);
@@ -25,7 +25,7 @@
 			<thead>
 				<tr>
 					<th>Category</th>
-					<th>Title</th>
+					<th>Book Title</th>
 					<th>Action</th>
 				</tr>
 			</thead>

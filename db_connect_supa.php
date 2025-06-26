@@ -1,8 +1,8 @@
 <?php
 // create connection
-$host= 'db.cdjndiwlkguoekmsamkv.supabase.co';
+$host= 'aws-0-ap-southeast-1.pooler.supabase.com';
 $db = 'postgres';
-$user = 'postgres';
+$user = 'postgres.boosiwjmzafecgvteifj';
 $password = 'Merkili!123'; 
 $port= '5432';
 

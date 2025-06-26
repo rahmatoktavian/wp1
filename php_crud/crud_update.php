@@ -10,7 +10,7 @@
 
 	// data from url
 	$id = $_GET["id"];
-
+	
 	// query data
 	$result = mysqli_query($conn, "SELECT id, name FROM category WHERE id = ".$id);
 

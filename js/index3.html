@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic HTML</title>
+</head>
+<body>
+  
+
+<input id="MyInput" type="text" name="title" value="" />
+<button id="MyButton" onclick="MyFunction()">Click Me</button>
+
+<script>
+function MyFunction() {
+  var title = document.getElementById("MyInput").value;
+  document.getElementById("MyButton").innerHTML = title;
+}
+</script>
+  
+</body>
+</html>
+

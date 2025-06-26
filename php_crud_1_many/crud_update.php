@@ -28,11 +28,11 @@
 			<td>
 				<select name="category_id" required>
 					<?php while($category = $categoryData->fetch_assoc()):?>
-					<?php if($book["category_id"] == $category["id"]):?>
-						<option value="<?php echo $category["id"]?>" selected><?php echo $category["name"]?></option>
-					<?php else:?>
-						<option value="<?php echo $category["id"]?>"><?php echo $category["name"]?></option>
-					<?php endif?>
+						<?php if($book["category_id"] == $category["id"]):?>
+							<option value="<?php echo $category["id"]?>" selected><?php echo $category["name"]?></option>
+						<?php else:?>
+							<option value="<?php echo $category["id"]?>"><?php echo $category["name"]?></option>
+						<?php endif?>
 					<?php endwhile?>
 				</select>
 			</td>

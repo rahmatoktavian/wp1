@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<form action="2_post_response.php" method="POST">
+<form action="post_response.php" method="POST">
   <table>
     <tr>
       <td>Name</td>

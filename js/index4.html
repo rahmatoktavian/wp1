@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic HTML</title>
+</head>
+<body>
+  
+<select id="MySelect" onchange="MyFunction()">
+  <option>Choose</option>
+  <option value="Audi">Audi</option>
+  <option value="BMW">BMW</option>
+  <option value="Mercedes">Mercedes</option>
+</select>
+
+<p id="CarSelected"></p>
+
+<script>
+function MyFunction() {
+  var CarBrand = document.getElementById("MySelect").value;
+  document.getElementById("CarSelected").innerHTML = "You are selected : " + CarBrand;
+}
+</script>  
+  
+</body>
+</html>

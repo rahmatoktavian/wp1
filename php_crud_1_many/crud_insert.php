@@ -17,6 +17,10 @@
 		<tr>
 			<td>Category</td>
 			<td>
+				<?php /*<?php while($category = $categoryData->fetch_assoc()):?>
+				<input name="category_id" type="radio" value="<?php echo $category["id"]?>"><?php echo $category["name"]?>
+				<?php endwhile?>*/?>
+				
 				<select name="category_id" required>
 					<?php while($category = $categoryData->fetch_assoc()):?>
 					<option value="<?php echo $category["id"]?>"><?php echo $category["name"]?></option>

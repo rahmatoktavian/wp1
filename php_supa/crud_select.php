@@ -9,7 +9,7 @@
 		include_once('../db_connect_supa.php');
 
 		// query data
-		$result = $pdo->query("SELECT id, name FROM category");
+		$result = $pdo->query("SELECT id, judul FROM buku");
 		?>
 
 		<table border="1">
@@ -23,7 +23,7 @@
 			<!-- data output from query -->
 			<?php while($row = $result->fetch(\PDO::FETCH_ASSOC)):?>
 				<tr>
-					<td><?php echo $row["name"];?></td>
+					<td><?php echo $row["judul"];?></td>
 					<td><a href="crud_update.php?id=<?php echo $row["id"];?>">Update</a></td>
 				</tr>
         	<?php endwhile;?>

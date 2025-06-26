@@ -9,11 +9,11 @@
 		include_once('../db_connect.php');
 
 		// sql data book join category
-		$sql = "SELECT category.name AS category_name, COUNT(book.stock) AS book_total
-				FROM book 
-				JOIN category ON book.category_id = category.id
-				GROUP BY category.name
-				ORDER BY category.name";
+		$sql = "SELECT category.name AS category_name, SUM(book.stock) AS book_total
+						FROM book 
+						JOIN category ON book.category_id = category.id
+						GROUP BY category.name
+						ORDER BY category.name";
 
 		// query data
 		$result_table = mysqli_query($conn, $sql);
@@ -42,10 +42,10 @@
 		<div id="container"></div>
 		
 		<!-- import highchart javascript file -->
-		<script src="https://code.highcharts.com/highcharts.js"></script>
-		<script src="https://code.highcharts.com/modules/exporting.js"></script>
-		<script src="https://code.highcharts.com/modules/export-data.js"></script>
-		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+		<script src="../highcharts/highcharts.js"></script>
+		<script src="../highcharts/exporting.js"></script>
+		<script src="../highcharts/export-data.js"></script>
+		<script src="../highcharts/accessibility.js"></script>
 		<script>
 			Highcharts.chart('container', {
 				chart: {
@@ -76,13 +76,9 @@
 					name: 'Book',
 					colorByPoint: true,
 					data: [
-						
-						<?php while($row = $result_chart->fetch_assoc()):?>
-						{
-							name: '<?php echo $row["category_name"]?>',
-							y: <?php echo $row["book_total"]?>
-						},
-						<?php endwhile?>
+					<?php while($row = $result_chart->fetch_assoc()):?>
+					{name: '<?php echo $row["category_name"]?>', y: <?php echo $row["book_total"]?>},
+					<?php endwhile?>
 					]
 				}]
 			});
